@@ -56,8 +56,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         return;
     }
 
+    final formattedResult = answer == answer.roundToDouble()
+        ? answer.toStringAsFixed(1)
+        : answer.toString();
+
     setState(() {
-      result = answer.toString();
+      result = formattedResult;
       operationLabel = '$first $operation $second';
     });
   }
